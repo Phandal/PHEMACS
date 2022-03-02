@@ -6,3 +6,5 @@
 !emacs-custom.el
 !init.el
 !init.el.bak
+!.gitignore
+!README.md

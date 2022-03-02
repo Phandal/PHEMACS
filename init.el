@@ -1,15 +1,15 @@
 ;; Set the font
-(set-frame-font "Fira Code 10" nil t)
+(set-frame-font "CaskaydiaCove NF 10" nil t)
 
 ;; Turn off the startup message
-(setq inhibit-startup-echo-area-message "bailey")
+(setq inhibit-startup-echo-area-message "csi")
 
 ;; Escape will always quit
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Set and load the custom file so it doesn't clog up the init file
-(setq custom-file "~/.config/emacs/emacs-custom.el")
-(load-file custom-file)
+(setq custom-file "~/.emacs.d/emacs-custom.el")
+(load custom-file nil t)
 
 ;; Custom keymaps for working with init file
 (defun ph/edit-user-init-file ()
@@ -40,8 +40,7 @@
 (setq straight-use-package-by-default t)
 
 ;; Make sure use-package is installed and configured
-(unless (package-installed-p 'use-package)
-  (straight-use-package 'use-package))
+(straight-use-package 'use-package)
 (require 'use-package)
 
 ;; ######################################################################

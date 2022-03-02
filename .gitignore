@@ -1,1 +1,8 @@
-elpa/**
+# Ignore everythin
+*
+
+# But not these
+!early-init.el
+!emacs-custom.el
+!init.el
+!init.el.bak

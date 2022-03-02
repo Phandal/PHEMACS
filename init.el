@@ -1,3 +1,14 @@
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs loaded in %s."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time))))))
+
+;; Set encoding...very important for Windows
+(set-default-coding-systems 'utf-8)
+
 ;; Set the font
 (set-frame-font "CaskaydiaCove NF 10" nil t)
 

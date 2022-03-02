@@ -23,7 +23,8 @@
 ;; Turn on line numbers for some modes
 (dolist (mode '(text-mode-hook
                 prog-mode-hook
-                conf-mode-hook))
+                conf-mode-hook
+		fundamental-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 1))))'
 
 ;; Turn off package.el so I can use straight.el

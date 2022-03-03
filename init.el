@@ -84,6 +84,13 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
 
+;; Wait, what key do I use for that?
+(use-package which-key
+  :config
+  (which-key-mode 1)
+  :custom
+  (setq which-key-idle-delay 0.3))
+
 ;; Now, to get into the good stuff...vertico for completions
 (use-package vertico
   :init
@@ -100,10 +107,16 @@
   (marginalia-mode 1))
 
 ;; Consult for more functions with completions
-(use-package consult)
+(use-package consult
+  :bind
+  ("C-s" . consult-line)
+  ("C-x b" . consult-buffer))
 
 ;; Embarks provides actions for selections
-(use-package embark)
+(use-package embark
+  :bind
+  ("C-." . embark-act)
+  ("C-," . embark-dwim))
 
 ;; Embark+Consult is even better
 (use-package embark-consult
@@ -113,7 +126,9 @@
 (use-package orderless
   :custom (completion-styles '(orderless)))
 
-;; I need a terminal
-(use-package vterm
+;; I want a folder explorer
+(use-package neotree
+  :config
+  (setq neo-theme 'arrow)
   :bind
-  ("C-c t" . vterm-other-window))
+  ("M-n" . neotree-toggle))

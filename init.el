@@ -9,11 +9,12 @@
 ;; Set encoding...very important for Windows
 (set-default-coding-systems 'utf-8)
 
-;; Set the font
-(set-frame-font "CaskaydiaCove NF 10" nil t)
+;; Set the font based on system type. Eventually I want to have a whole section that changes when on linux vs windows
+(if (string-equal system-type "windows-nt")
+  (set-frame-font "CaskaydiaCove NF 10" nil t))
 
 ;; Turn off the startup message
-(setq inhibit-startup-echo-area-message "csi")
+(setq inhibit-startup-echo-area-message (user-login-name))
 
 ;; Escape will always quit
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -112,7 +113,7 @@
   ("C-s" . consult-line)
   ("C-x b" . consult-buffer))
 
-;; Embarks provides actions for selections
+;; Embarks provides actions for selections in consult
 (use-package embark
   :bind
   ("C-." . embark-act)
@@ -132,3 +133,6 @@
   (setq neo-theme 'arrow)
   :bind
   ("M-n" . neotree-toggle))
+
+;; Git is like totally essential.
+(use-package magit)

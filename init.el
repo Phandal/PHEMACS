@@ -12,6 +12,13 @@
   (set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t))
 
 ;; Custom keymaps for working with init file
+(defun ph/change-to-emacs-directory ()
+  """Switch current directory to the emacs directory"""
+  (interactive)
+  (message "Changed directory to: %s" (cd user-emacs-directory)))
+
+(global-set-key [f5] 'ph/change-to-emacs-directory)
+
 (defun ph/edit-user-init-file ()
   """Edit the emacs init file"""
   (interactive)

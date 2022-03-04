@@ -12,7 +12,7 @@ My slightly customized emacs config that I use daily.
 ## Overview
 To start, I am a vim/neovim user. After using vim/neovim since 2019 I decided to actually give emacs a shot. This config is just my way of learning emacs-lisp and using emacs. By no means is this perfect as I'm still quite new to emacs and I don' know everything (But do you ever really know everything about emacs?). My main focus is trying to make this config work for both my work pc as well as my personal pc. My work computer uses emacs for windows and my personal computer uses native comp emacs on Linux. I spent to much time trying to manage 2 or 3 different repos for my work vs personal configs in vim/neovim and needed to find a better solution.
 
-### Dependencies
+## Dependencies
 - CaskcaydiaCove Nerd Font
   I use this and don't really have a good way of checking for fonts right now so you will probably have to change this in the config file
 - ripgrep

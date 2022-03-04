@@ -1,4 +1,4 @@
-;; Profile emacs startup
+;; Profile emacs startupp
 (add-hook 'emacs-startup-hook
           (lambda ()
             (message "Emacs loaded in %s."
@@ -6,22 +6,10 @@
                              (float-time
                               (time-subtract after-init-time before-init-time))))))
 
-;; Set encoding...very important for Windows
-(set-default-coding-systems 'utf-8)
-
-;; Set the font based on system type. Eventually I want to have a whole section that changes when on linux vs windows
+;; Set font based on system type.
 (if (string-equal system-type "windows-nt")
-  (set-frame-font "CaskaydiaCove NF 10" nil t))
-
-;; Turn off the startup message
-(setq inhibit-startup-echo-area-message (user-login-name))
-
-;; Escape will always quit
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; Set and load the custom file so it doesn't clog up the init file
-(setq custom-file "~/.emacs.d/emacs-custom.el")
-(load custom-file nil t)
+    (set-frame-font "CaskaydiaCove NF 10" nil t)
+  (set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t))
 
 ;; Custom keymaps for working with init file
 (defun ph/edit-user-init-file ()
@@ -136,3 +124,9 @@
 
 ;; Git is like totally essential.
 (use-package magit)
+
+;; Speaking of git...if we are on linux lets use vterm for a terminal
+(if (string-equal system-type "gnu/linux")
+    (use-package vterm
+      :bind
+      ("C-c t" . vterm-other-window)))

@@ -2,7 +2,7 @@
 (setq gc-cons-threshold (* 50 1000 1000))
 
 ;; Turn off compiler warnings as they get very annoying
-(if (native-comp-available-p)
+(if (fboundp 'native-comp-available-p)
     (setq native-comp-async-report-warnings-errors nil))
 
 ;; Better Defaults

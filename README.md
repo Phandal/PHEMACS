@@ -45,7 +45,8 @@ install.sh
 | orderless | Changes the way completions are shown |
 | neotree | Folder Explorer |
 | magit | Git frontend |
-| vterm | Terminal Emulator ***(Linux only)*** |
+| ssh-agency | Manages Keys for Git **(Windows only)** |
+| vterm | Terminal Emulator **(Linux only)** |
 
 ## FAQ
 **Q: But Phandal, I thought you said you were a vim/neovim user. Why aren't you using Evil-Mode?**

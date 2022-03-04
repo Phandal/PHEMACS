@@ -16,7 +16,6 @@
   """Switch current directory to the emacs directory"""
   (interactive)
   (message "Changed directory to: %s" (cd user-emacs-directory)))
-
 (global-set-key [f5] 'ph/change-to-emacs-directory)
 
 (defun ph/edit-user-init-file ()
@@ -131,6 +130,13 @@
 
 ;; Git is like totally essential.
 (use-package magit)
+
+;; ssh-agency is import for magit on windows
+(if (string-equal system-type "windows-nt")
+    (use-package ssh-agency
+      :after magit
+      :config
+      (setenv "SSH_ASKPASS" "git-gui--askpass")))
 
 ;; Speaking of git...if we are on linux lets use vterm for a terminal
 (if (string-equal system-type "gnu/linux")

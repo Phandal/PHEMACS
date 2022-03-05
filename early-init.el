@@ -26,6 +26,7 @@
 (setq scroll-conservatively 100)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-x C-z"))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; If emacs is version 29 or above use actual pixel scrolling

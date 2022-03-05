@@ -65,7 +65,7 @@
 ;; First up themes. I like to use the doom themes plugin
 (use-package doom-themes
   :defer t)
-(load-theme 'doom-nord t)
+(load-theme 'doom-solarized-light t)
 (doom-themes-visual-bell-config)
 
 ;; Along with the themes we need better icons!

@@ -12,11 +12,11 @@
 (setq inhibit-startup-echo-area-message (user-login-name))
 (setq visible-bell t)
 (fringe-mode 10)
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (scroll-bar-mode -1)
-(global-hl-line-mode 1)
+;;(global-hl-line-mode 1)
 (electric-pair-mode 1)
 (visual-line-mode 1)
 (delete-selection-mode 1)
@@ -28,6 +28,8 @@
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
 
 ;; If emacs is version 29 or above use actual pixel scrolling
 (if (fboundp 'pixel-scroll-precision-mode)

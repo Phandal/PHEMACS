@@ -49,17 +49,16 @@
 (straight-use-package 'use-package)
 (require 'use-package)
 
-;; ######################################################################
-;;  _____           _                       _____             __ _        
-;; |  __ \         | |                     / ____|           / _(_)       
-;; | |__) |_ _  ___| | ____ _  __ _  ___  | |     ___  _ __ | |_ _  __ _  
-;; |  ___/ _` |/ __| |/ / _` |/ _` |/ _ \ | |    / _ \| '_ \|  _| |/ _` | 
-;; | |  | (_| | (__|   < (_| | (_| |  __/ | |___| (_) | | | | | | | (_| | 
-;; |_|   \__,_|\___|_|\_\__,_|\__, |\___|  \_____\___/|_| |_|_| |_|\__, | 
-;;                             __/ |                                __/ | 
-;;                            |___/                                |___/ 
-;;
-;; ######################################################################
+;; ################################################################
+;;  _______  _______  _______  _        _______  _______  _______ 
+;; (  ____ )(  ___  )(  ____ \| \    /\(  ____ \(  ____ \(  ____ \
+;; | (    )|| (   ) || (    \/|  \  / /| (    \/| (    \/| (    \/
+;; | (____)|| (___) || |      |  (_/ / | |      | (__    | (_____ 
+;; |  _____)|  ___  || |      |   _ (  | | ____ |  __)   (_____  )
+;; | (      | (   ) || |      |  ( \ \ | | \_  )| (            ) |
+;; | )      | )   ( || (____/\|  /  \ \| (___) || (____/\/\____) |
+;; |/       |/     \|(_______/|_/    \/(_______)(_______/\_______)
+;; ###############################################################
 
 
 ;; First up themes. I like to use the doom themes plugin
@@ -70,6 +69,11 @@
 
 ;; Along with the themes we need better icons!
 (use-package all-the-icons)
+
+;; And emojis please
+(use-package emojify
+  :config
+  (global-emojify-mode 1))
 
 ;; Uh, now what... I need better help!
 (use-package helpful
@@ -91,7 +95,8 @@
   :init
   (vertico-mode 1)
   :config
-  (savehist-mode 1))
+  (savehist-mode 1)
+  (setq vertico-cycle t))
 
 ;; Marginalia for more info with vertico
 (use-package marginalia
@@ -119,7 +124,9 @@
 
 ;; Orderless provides a better search in minibuffer
 (use-package orderless
-  :custom (completion-styles '(orderless)))
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-overrides '((file (styles . (partial-completion))))))
 
 ;; I want a folder explorer
 (use-package neotree
@@ -143,3 +150,30 @@
     (use-package vterm
       :bind
       ("C-c t" . vterm-other-window)))
+
+;; ##################################################################
+;;  _______  _______  _______    _______  _______  ______   _______ 
+;; (  ___  )(  ____ )(  ____ \  (       )(  ___  )(  __  \ (  ____ \
+;; | (   ) || (    )|| (    \/  | () () || (   ) || (  \  )| (    \/
+;; | |   | || (____)|| |        | || || || |   | || |   ) || (__    
+;; | |   | ||     __)| | ____   | |(_)| || |   | || |   | ||  __)   
+;; | |   | || (\ (   | | \_  )  | |   | || |   | || |   ) || (      
+;; | (___) || ) \ \__| (___) |  | )   ( || (___) || (__/  )| (____/\
+;; (_______)|/   \__/(_______)  |/     \|(_______)(______/ (_______/
+;; #################################################################
+
+;; Finally we can get into org more
+
+;; Just a setup function for org-mode
+(defun bf/org-mode-setup ()
+  (org-indent-mode 1)
+  (variable-pitch-mode 1)
+  (auto-fill-mode 0)
+  (visual-line-mode 1))
+
+(use-package org
+  :straight (:type built-in)
+  :hook
+  (bf/org-mode-setup)
+  :config
+  (setq org-hide-emphasis-markers t))

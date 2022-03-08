@@ -3,7 +3,7 @@
           (lambda ()
             (message "Emacs loaded in %s."
                      (format "%.2f seconds"
-                             (float-time
+                              (float-time
                               (time-subtract after-init-time before-init-time))))))
 
 ;; Set font based on system type.
@@ -177,3 +177,40 @@
   (bf/org-mode-setup)
   :config
   (setq org-hide-emphasis-markers t))
+
+;; #############################################
+;; _______  _______  _        _______ _________ 
+;; (  ____ \(  ____ \( \      (  ___  )\__   __/
+;; | (    \/| (    \/| (      | (   ) |   ) (   
+;; | (__    | |      | |      | |   | |   | |   
+;; |  __)   | | ____ | |      | |   | |   | |   
+;; | (      | | \_  )| |      | |   | |   | |   
+;; | (____/\| (___) || (____/\| (___) |   | |   
+;; (_______/(_______)(_______/(_______)   )_(   
+;; #############################################
+
+;; trying to learn rust so...rust-mode!
+(use-package rust-mode
+  :config
+  (setq compile-command "cargo check"))
+
+;; I have used LSP-mode before and it felt to bloated, so I'm trying out eglot mode
+(use-package eglot
+  :config
+  (add-hook 'rust-mode-hook 'eglot-ensure))
+
+;; better syntax highlighting
+(use-package tree-sitter-langs)
+
+(use-package tree-sitter
+  :after tree-sitter-langs
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
+;; better completion-at-point system
+(use-package company
+  :config
+  (setq company-minimum-prefix-length 1)
+  (add-hook 'after-init-hook 'global-company-mode))
+

@@ -135,6 +135,12 @@
   :bind
   ("M-n" . neotree-toggle))
 
+;; I need to have the environment variable set correctly in Linux
+(if (string-equal system-type "gnu/linux")
+    (use-package exec-path-from-shell
+      :config
+      (exec-path-from-shell-initialize)))
+
 ;; Git is like totally essential.
 (use-package magit)
 

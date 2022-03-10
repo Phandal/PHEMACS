@@ -4,6 +4,8 @@
 # But not these
 !early-init.el
 !emacs-custom.el
+!functions.el
+!keybinds.el
 !init.el
 !init.el.bak
 !.gitignore

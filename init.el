@@ -11,6 +11,10 @@
     (set-frame-font "CaskaydiaCove NF 10" nil t)
   (set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t))
 
+;; Load my custom commands and keybinds
+(load "~/.emacs.d/functions.el" nil t)
+(load "~/.emacs.d/keybinds.el" nil t)
+
 ;; Custom keymaps for working with init file
 (defun ph/change-to-emacs-directory ()
   """Switch current directory to the emacs directory"""

@@ -196,14 +196,13 @@
 ;; #############################################
 
 ;; trying to learn rust so...rust-mode!
-(use-package rust-mode
-  :config
-  (setq compile-command "cargo check"))
+(use-package rust-mode)
 
-;; I have used LSP-mode before and it felt to bloated, so I'm trying out eglot mode
-(use-package eglot
-  :config
-  (add-hook 'rust-mode-hook 'eglot-ensure))
+(use-package lsp-mode
+  :hook (c-mode . lsp-deferred)
+  :commands (lsp lsp-deferred))
+
+(use-package lsp-ui)
 
 ;; better syntax highlighting
 (use-package tree-sitter-langs)

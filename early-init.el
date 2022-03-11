@@ -50,6 +50,5 @@
 (set-default-coding-systems 'utf-8)
 
 ;; Set and load the custom file so it doesn't clog up the init file
-;;(setq custom-file "~/.emacs.d/emacs-custom.el")
 (setq custom-file (concat user-emacs-directory "emacs-custom.el"))
 (load custom-file nil t)

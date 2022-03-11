@@ -4,5 +4,75 @@
 * Table of Contents :toc:
 
 * Overview
-To start, I have been a vim/neovim user for the past 3 years. I decided that I should give Emacs 
-an 
+To start, I was a vim/neovim user for about 3 years. After reading a lot about Emacs, I have decided to make the switch and give Emacs and actual shot. By no means is this perfect as I'm still quite new to Emacs and I don't know everything (But do you ever really know everything there is to know about Emacs?). My main focus is trying to make this config work for both my work and personal PC. My work computer uses emacs for windows and my personal computer uses emacs compiled with native compilation. I spent to much time trying to manage 2 or 3 different repos for work vs personal configs and wanted to make them all work off of the same one!
+
+* Dependencies
+- CaskcaydiaCove Nerd Font
+I use this and don't really have a good way of checking for fonts right now so you will probably have to change this in the config file.
++ [[https://www.nerdfonts.com/font-downloads][CaskaydiaCove Nerd Font]]
++ [[file:init.el][Setting is on Line 10]]
+- ripgrep
+
+* Installation
+*I haven't wrote the install script yet*
+** Linux
+1. Clone this repo
+#+begin_src bash
+git clone https://github.com/Phandal/PHEMACS.git
+#+end_src
+2. Run install.sh
+#+begin_src bash
+cd PHEMACS
+./install.sh
+#+end_src
+** Windows
+1. Clone this repo
+#+begin_src batch
+git clone https://github.com/Phandal/PHEMACS.git
+#+end_src
+2. Run install.sh
+#+begin_src batch
+cd PHEMACS
+./install.sh
+#+end_src
+3. Set the sytem environment variable ~$HOME~ to whatever ~%USERPROFILE%~ evaluates to. For example:
+#+begin_src batch
+echo %USERPROFILE%
+-> C:\Users\Phandal
+#+end_src
+
+* Packages
+| Package              | Usage                                       |
+|----------------------+---------------------------------------------|
+| straight             | Package Manager                             |
+| doom-themes          | Package containing a lot of themes          |
+| all-the-icons        | Makes emacs use cool icons                  |
+| emojify              | Allows emojis in buffers                    |
+| helpful              | Better help package                         |
+| which-key            | Shows keybindings                           |
+| vertico              | Completion framework                        |
+| marginalia           | More info in minibuffer                     |
+| consult              | Adds more functions that use completion     |
+| embark               | Adds actions to consult                     |
+| embark-consult       | Adds even more actions to consult           |
+| orderless            | Changes the way completions are shown       |
+| neotree              | Folder explorer                             |
+| exec-path-from-shell | Load environment Variables *(Linux Only)*     |
+| magit                | Git frontend                                |
+| ssh-agency           | Manages keys for git *(Windows Only)*         |
+| vterm                | Terminal emulator *(Linux Only)*              |
+| diminish             | Hide minor modes from showing in minibuffer |
+| org                  | Notes, outlines, & everything documents     |
+| org-bullets          | Change the look of org-mode bullets         |
+| visual-fill-column   | I use this to center text in the window     |
+| rust-mode            | Mode for editing rust code                  |
+| lsp-mode             | LSP implementation in Emacs                 |
+| lsp-ui               | Addes ui for lsp-mode                       |
+| tree-sitter-langs    | Languages for tree-sitter to use            |
+| tree-sitter          | Better syntax highlighting                  |
+| company              | popup window for lsp-mode                   |
+| company-box          | better ui for company-mode                  |
+
+* FAQ
+*Q: But Phandal, I though you said you were a vim/neovim user. Why aren't you using Evil-Mode?*
+A: Well, to be honest, I don't really want to configure all that right now. Plus, I think its worth it to be familiar with the emacs keybindings.

@@ -35,6 +35,7 @@
 (global-set-key [f7] 'ph/load-user-init-file)
 
 ;; Bootstrapping straight.el. Taken from `htps://github.com/raxod502/straight.el'
+(setq straight-check-for-modifications nil)
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))

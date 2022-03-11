@@ -74,6 +74,10 @@
 ;; Along with the themes we need better icons!
 (use-package all-the-icons)
 
+;; Undo needs a rehaul
+(use-package undo-tree
+  :config (global-undo-tree-mode 1))
+
 ;; And emojis please
 (use-package emojify
   :config

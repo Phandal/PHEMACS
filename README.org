@@ -45,6 +45,7 @@ echo %USERPROFILE%
 | straight             | Package Manager                             |
 | doom-themes          | Package containing a lot of themes          |
 | all-the-icons        | Makes emacs use cool icons                  |
+| undo-tree            | Better undo system                          |
 | emojify              | Allows emojis in buffers                    |
 | helpful              | Better help package                         |
 | which-key            | Shows keybindings                           |

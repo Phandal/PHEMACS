@@ -1,16 +1,14 @@
 #+TITLE: PHEMACS
 #+AUTHOR: Phandal
 
-* Table of Contents :toc:
-
 * Overview
 To start, I was a vim/neovim user for about 3 years. After reading a lot about Emacs, I have decided to make the switch and give Emacs and actual shot. By no means is this perfect as I'm still quite new to Emacs and I don't know everything (But do you ever really know everything there is to know about Emacs?). My main focus is trying to make this config work for both my work and personal PC. My work computer uses emacs for windows and my personal computer uses emacs compiled with native compilation. I spent to much time trying to manage 2 or 3 different repos for work vs personal configs and wanted to make them all work off of the same one!
 
 * Dependencies
 - CaskcaydiaCove Nerd Font
-I use this and don't really have a good way of checking for fonts right now so you will probably have to change this in the config file.
-+ [[https://www.nerdfonts.com/font-downloads][CaskaydiaCove Nerd Font]]
-+ [[file:init.el][Setting is on Line 10]]
+  I use this and don't really have a good way of checking for fonts right now so you will probably have to change this in the config file.
+  + [[https://www.nerdfonts.com/font-downloads][CaskaydiaCove Nerd Font]]
+  + [[file:init.el][Setting is on Line 10]]
 - ripgrep
 
 * Installation

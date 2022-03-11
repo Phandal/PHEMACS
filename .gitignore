@@ -9,4 +9,5 @@
 !init.el
 !init.el.bak
 !.gitignore
+!README.org
 !README.md

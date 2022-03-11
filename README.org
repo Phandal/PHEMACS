@@ -1,0 +1,8 @@
+#+TITLE: PHEMACS
+#+AUTHOR: Phandal
+
+* Table of Contents :toc:
+
+* Overview
+To start, I have been a vim/neovim user for the past 3 years. I decided that I should give Emacs 
+an 

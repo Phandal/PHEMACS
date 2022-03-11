@@ -12,8 +12,8 @@
   (set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t))
 
 ;; Load my custom commands and keybinds
-(load (concat user-emacs-directory "functions.el"))
-(load (concat user-emacs-directory "keybinds.el"))
+(load (concat user-emacs-directory "functions.el") nil t)
+(load (concat user-emacs-directory "keybinds.el") nil t)
 
 ;; Custom keymaps for working with init file
 (defun ph/change-to-emacs-directory ()
@@ -178,7 +178,7 @@
 ;; Finally we can get into org more
 
 ;; Just a setup function for org-mode
-(defun bf/org-mode-setup ()
+(defun ph/org-mode-setup ()
   (org-indent-mode 1)
   (variable-pitch-mode 1)
   (auto-fill-mode 0)
@@ -186,10 +186,21 @@
 
 (use-package org
   :straight (:type built-in)
-  :hook
-  (bf/org-mode-setup)
+  :hook (org-mode . ph/org-mode-setup)
   :config
   (setq org-hide-emphasis-markers t))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
+
+(defun ph/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . ph/org-mode-visual-fill))
 
 ;; ######################################################################
 ;;  _        _______  _______         _______  _______  ______   _______ 

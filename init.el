@@ -226,3 +226,6 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+;; setting options for languages
+(setq-default js-indent-level 2) 
+(setq-default js-jsx-indent-level 2)

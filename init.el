@@ -15,25 +15,6 @@
 (load (concat user-emacs-directory "functions.el") nil t)
 (load (concat user-emacs-directory "keybinds.el") nil t)
 
-;; Custom keymaps for working with init file
-(defun ph/change-to-emacs-directory ()
-  """Switch current directory to the emacs directory"""
-  (interactive)
-  (message "Changed directory to: %s" (cd user-emacs-directory)))
-(global-set-key [f5] 'ph/change-to-emacs-directory)
-
-(defun ph/edit-user-init-file ()
-  """Edit the emacs init file"""
-  (interactive)
-  (find-file user-init-file))
-(global-set-key [f6] 'ph/edit-user-init-file)
-
-(defun ph/load-user-init-file ()
-  """Load the user init file."""
-  (interactive)
-  (load-file user-init-file))
-(global-set-key [f7] 'ph/load-user-init-file)
-
 ;; Bootstrapping straight.el. Taken from `htps://github.com/raxod502/straight.el'
 (setq straight-check-for-modifications nil)
 (defvar bootstrap-version)
@@ -79,10 +60,10 @@
 (use-package undo-tree
   :config (global-undo-tree-mode 1))
 
-;; And emojis please
-(use-package emojify
-  :config
-  (global-emojify-mode 1))
+;; ;; And emojis please
+;; (use-package emojify
+;;   :config
+;;   (global-emojify-mode 1))
 
 ;; Uh, now what... I need better help!
 (use-package helpful

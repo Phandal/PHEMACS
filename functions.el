@@ -30,4 +30,4 @@
   "If on work PC then load the Agenda file for work."
   (interactive)
   (if (string-equal user-login-name "CSI")
-      (find-file (concat (getenv "HOME") "/Agenda/agenda.md"))))
+      (find-file (concat (getenv "HOME") "/Agenda/agenda.org"))))

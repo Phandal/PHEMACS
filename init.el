@@ -77,7 +77,8 @@
 
 ;; Undo needs a rehaul
 (use-package undo-tree
-  :config (global-undo-tree-mode 1))
+  :config (global-undo-tree-mode 1)
+  :diminish)
 
 ;; And emojis please
 (use-package emojify
@@ -97,7 +98,8 @@
   :config
   (which-key-mode 1)
   :custom
-  (setq which-key-idle-delay 0.3))
+  (setq which-key-idle-delay 0.3)
+  :diminish)
 
 ;; Now, to get into the good stuff...vertico for completions
 (use-package vertico
@@ -169,6 +171,10 @@
 ;; Who wants a huge modeline
 (use-package diminish)
 
+(use-package eldoc
+  :straight (:type built-in)
+  :diminish)
+
 ;; ##################################################################
 ;;  _______  _______  _______    _______  _______  ______   _______ 
 ;; (  ___  )(  ____ )(  ____ \  (       )(  ___  )(  __  \ (  ____ \
@@ -221,7 +227,7 @@
 (use-package rust-mode)
 
 (use-package lsp-mode
-  :hook (c-mode . lsp-deferred)
+  ;:hook (c-mode . lsp-deferred)
   :commands (lsp lsp-deferred))
 
 (use-package lsp-ui)
@@ -230,6 +236,7 @@
 (use-package tree-sitter-langs)
 
 (use-package tree-sitter
+  :diminish
   :after tree-sitter-langs
   :config
   (global-tree-sitter-mode)

@@ -27,7 +27,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (global-unset-key (kbd "C-z"))
 (global-unset-key (kbd "C-x C-z"))
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 

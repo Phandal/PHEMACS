@@ -1,36 +1,22 @@
-;; Profile emacs startupp
+;; Profile emacs startup
 (add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs loaded in %s."
-                     (format "%.2f seconds"
-                              (float-time
-                              (time-subtract after-init-time before-init-time))))))
+	  (lambda ()
+	    (message "Emacs loaded in %s."
+		     (format "%.2f seconds"
+			     (float-time
+			      (time-subtract after-init-time before-init-time))))))
 
-;; Set font based on system type.
-(if (string-equal system-type "windows-nt")
-    (set-frame-font "CaskaydiaCove NF 10" nil t)
-  (set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t))
+;; Set font to my favorite
+(set-frame-font "CaskaydiaCove Nerd Font Mono 10" nil t)
 
-;; Custom keymaps for working with init file
-(defun ph/change-to-emacs-directory ()
-  """Switch current directory to the emacs directory"""
-  (interactive)
-  (message "Changed directory to: %s" (cd user-emacs-directory)))
-(global-set-key [f5] 'ph/change-to-emacs-directory)
+;; Load custom functions from other file
+(load-file (concat user-emacs-directory "functions.el"))
+(load-file (concat user-emacs-directory "keybinds.el"))
 
-(defun ph/edit-user-init-file ()
-  """Edit the emacs init file"""
-  (interactive)
-  (find-file user-init-file))
-(global-set-key [f6] 'ph/edit-user-init-file)
+;; Make the `modeline' flash for the bell
+(setq ring-bell-function 'ph/flash-mode-line)
 
-(defun ph/load-user-init-file ()
-  """Load the user init file."""
-  (interactive)
-  (load-file user-init-file))
-(global-set-key [f7] 'ph/load-user-init-file)
-
-;; Bootstrapping straight.el. Taken from `htps://github.com/raxod502/straight.el'
+;; Boostrapping `straight.el'. Taken from `https://github.com/raxod502/straight.el'
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -43,9 +29,11 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+
+;; Make `straight.el' use `use-package' forms
 (setq straight-use-package-by-default t)
 
-;; Make sure use-package is installed and configured
+;; Make sure `use-packge' is installed and configured
 (straight-use-package 'use-package)
 (require 'use-package)
 
@@ -60,20 +48,33 @@
 ;; |/       |/     \|(_______/|_/    \/(_______)(_______/\_______)
 ;; ###############################################################
 
-
-;; First up themes. I like to use the doom themes plugin
-(use-package doom-themes
-  :defer t)
-(load-theme 'doom-solarized-light t)
-(doom-themes-visual-bell-config)
+;; OHHHHH we got modus themes now!
+(use-package modus-themes
+  :init
+  ;; Add all your customizations prior to loading the themes
+  
+  ;; Load the theme files before enabling a theme
+  (modus-themes-load-themes)
+  :config
+  ;; Load the theme of your choice:
+  (modus-themes-load-vivendi) ;; OR (modus-themes-load-operandi)
+  :bind ("<f5>" . modus-themes-toggle))
 
 ;; Along with the themes we need better icons!
 (use-package all-the-icons)
 
-;; And emojis please
-(use-package emojify
+;; I need proper env variables
+(use-package exec-path-from-shell
   :config
-  (global-emojify-mode 1))
+  (when (memq window-system '(mac ns x))
+   (exec-path-from-shell-initialize)))
+  
+;; Undo needs a rehaul
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode 1)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+  :diminish)
 
 ;; Uh, now what... I need better help!
 (use-package helpful
@@ -88,7 +89,28 @@
   :config
   (which-key-mode 1)
   :custom
-  (setq which-key-idle-delay 0.3))
+  (setq which-key-idle-delay 0.3)
+  :diminish)
+
+;; Git is like totally essential.
+(use-package magit)
+
+;; I must have a vterm
+(use-package vterm
+  :bind
+  ("C-c t" . vterm-other-window))
+
+;; Who wants a huge modeline anyway
+(use-package diminish)
+
+;; Better syntax highlighting
+(use-package tree-sitter-langs)
+(use-package tree-sitter
+  :diminish
+  :after tree-sitter-langs
+  :config
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
 
 ;; Now, to get into the good stuff...vertico for completions
 (use-package vertico
@@ -128,98 +150,36 @@
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles . (partial-completion))))))
 
-;; I want a folder explorer
-(use-package neotree
-  :config
-  (setq neo-theme 'arrow)
-  :bind
-  ("M-n" . neotree-toggle))
+;; ######################################################################
+;;  _        _______  _______         _______  _______  ______   _______ 
+;; ( \      (  ____ \(  ____ )       (       )(  ___  )(  __  \ (  ____ \
+;; | (      | (    \/| (    )|       | () () || (   ) || (  \  )| (    \/
+;; | |      | (_____ | (____)| _____ | || || || |   | || |   ) || (__    
+;; | |      (_____  )|  _____)(_____)| |(_)| || |   | || |   | ||  __)   
+;; | |            ) || (             | |   | || |   | || |   ) || (      
+;; | (____/\/\____) || )             | )   ( || (___) || (__/  )| (____/\
+;; (_______/\_______)|/              |/     \|(_______)(______/ (_______/ 
+;; ######################################################################
+(use-package lsp-mode
+  :hook (c-mode . lsp-deferred)
+  :commands (lsp lsp-deferred)
+  :diminish)
 
-;; I need to have the environment variable set correctly in Linux
-(if (string-equal system-type "gnu/linux")
-    (use-package exec-path-from-shell
-      :config
-      (exec-path-from-shell-initialize)))
+(use-package lsp-ui
+  :diminish)
 
-;; Git is like totally essential.
-(use-package magit)
-
-;; ssh-agency is import for magit on windows
-(if (string-equal system-type "windows-nt")
-    (use-package ssh-agency
-      :after magit
-      :config
-      (setenv "SSH_ASKPASS" "git-gui--askpass")))
-
-;; Speaking of git...if we are on linux lets use vterm for a terminal
-(if (string-equal system-type "gnu/linux")
-    (use-package vterm
-      :bind
-      ("C-c t" . vterm-other-window)))
-
-;; ##################################################################
-;;  _______  _______  _______    _______  _______  ______   _______ 
-;; (  ___  )(  ____ )(  ____ \  (       )(  ___  )(  __  \ (  ____ \
-;; | (   ) || (    )|| (    \/  | () () || (   ) || (  \  )| (    \/
-;; | |   | || (____)|| |        | || || || |   | || |   ) || (__    
-;; | |   | ||     __)| | ____   | |(_)| || |   | || |   | ||  __)   
-;; | |   | || (\ (   | | \_  )  | |   | || |   | || |   ) || (      
-;; | (___) || ) \ \__| (___) |  | )   ( || (___) || (__/  )| (____/\
-;; (_______)|/   \__/(_______)  |/     \|(_______)(______/ (_______/
-;; #################################################################
-
-;; Finally we can get into org more
-
-;; Just a setup function for org-mode
-(defun bf/org-mode-setup ()
-  (org-indent-mode 1)
-  (variable-pitch-mode 1)
-  (auto-fill-mode 0)
-  (visual-line-mode 1))
-
-(use-package org
-  :straight (:type built-in)
-  :hook
-  (bf/org-mode-setup)
-  :config
-  (setq org-hide-emphasis-markers t))
-
-;; #############################################
-;; _______  _______  _        _______ _________ 
-;; (  ____ \(  ____ \( \      (  ___  )\__   __/
-;; | (    \/| (    \/| (      | (   ) |   ) (   
-;; | (__    | |      | |      | |   | |   | |   
-;; |  __)   | | ____ | |      | |   | |   | |   
-;; | (      | | \_  )| |      | |   | |   | |   
-;; | (____/\| (___) || (____/\| (___) |   | |   
-;; (_______/(_______)(_______/(_______)   )_(   
-;; #############################################
-
-;; trying to learn rust so...rust-mode!
-(use-package rust-mode
-  :config
-  (setq compile-command "cargo check"))
-
-;; I have used LSP-mode before and it felt to bloated, so I'm trying out eglot mode
-(use-package eglot
-  :config
-  (add-hook 'rust-mode-hook 'eglot-ensure))
-
-;; better syntax highlighting
-(use-package tree-sitter-langs)
-
-(use-package tree-sitter
-  :after tree-sitter-langs
-  :config
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-;; better completion-at-point system
 (use-package company
+  :after
+  (lsp-mode)
   :config
   (setq company-minimum-prefix-length 1)
-  (add-hook 'after-init-hook 'global-company-mode))
+  :diminish)
 
 (use-package company-box
-  :hook (company-mode . company-box-mode))
+  :hook (company-mode . company-box-mode)
+  :diminish)
 
+(use-package flycheck
+  :config
+  (global-flycheck-mode)
+  :diminish)

@@ -5,6 +5,8 @@
 !early-init.el
 !emacs-custom.el
 !init.el
-!init.el.bak
+!init.el.bake
+!functions.el
+!keybinds.el
 !.gitignore
 !README.md

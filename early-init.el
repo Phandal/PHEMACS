@@ -7,8 +7,10 @@
 (tool-bar-mode -1)                                          ;; Turn off the toolbar
 (tooltip-mode -1)                                           ;; Turn off tooltips
 (scroll-bar-mode -1)                                        ;; Turn off the scroll bar
+(column-number-mode 1)                                      ;; Turn on column numbers in the modeline
 (electric-pair-mode 1)                                      ;; Automatically insert the closing bracket
-(visual-line-mode 1)                                        ;; Turns on word wrap and makes operations work on visual lines
+(global-visual-line-mode 1)                                 ;; Turns on word wrap and makes operations work on visual lines
+(global-hl-line-mode 1)                                     ;; Highlights the current line
 (delete-selection-mode 1)                                   ;; If Selection is made, typed text replaces is
 (setq mouse-wheel-scroll-aount '(3 ((shift) . 1)))          ;; Change to scrolling 3 lines at a time
 (setq mouse-wheel-progressive-speed nil)                    ;; Turn off progressive scrolling

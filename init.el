@@ -183,3 +183,8 @@
   :config
   (global-flycheck-mode)
   :diminish)
+
+(use-package projectile
+  :config
+  (projectile-mode 1))
+

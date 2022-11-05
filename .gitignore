@@ -5,3 +5,4 @@ transient/*
 auto-save-list
 flycheck_init.el
 emacs-custom.el
+server/*

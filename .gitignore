@@ -3,3 +3,5 @@ projects
 transient/*
 .lsp-session-v1
 auto-save-list
+flycheck_init.el
+emacs-custom.el

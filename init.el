@@ -12,6 +12,7 @@
 (setq visible-bell t)
 (setq-default indent-tabs-mode nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
+(setq confirm-kill-emacs 'y-or-n-p)
 
 (global-set-key (kbd "<escape>") 'keyboard-quit)
 (global-unset-key (kbd "C-x C-z"))
@@ -71,7 +72,7 @@
   (setq which-key-idle-delay 0.3))
 
 (use-package doom-themes)
-(load-theme 'doom-tokyo-night t nil)
+(load-theme 'doom-tomorrow-day t nil)
 
 (use-package exec-path-from-shell
   :config
@@ -93,6 +94,10 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
 
 (use-package typescript-mode)
 

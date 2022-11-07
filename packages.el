@@ -15,6 +15,12 @@
 (use-package doom-themes)
 (load-theme 'doom-tomorrow-day t nil)
 
+(use-package doom-modeline
+  :init
+  (doom-modeline-mode t)
+  :config
+  (setq-default doom-modeline-height 10))
+
 (use-package exec-path-from-shell
   :config
   (when (memq window-system '(mac ns x))
@@ -27,8 +33,6 @@
 (use-package lsp-ui)
 
 (use-package company
-  :after
-  (lsp-mode)
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.1))

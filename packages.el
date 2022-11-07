@@ -33,6 +33,8 @@
 (use-package lsp-ui)
 
 (use-package company
+  :init
+  (global-company-mode 1)
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.1))

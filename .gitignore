@@ -8,3 +8,4 @@ emacs-custom.el
 server/*
 eln-cache/*
 flycheck_packages.el
+.cache/*

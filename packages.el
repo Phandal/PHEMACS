@@ -28,7 +28,9 @@
 
 (use-package magit)
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :custom
+  (setq lsp-eslint-auto-fix-on-save t))
 
 (use-package lsp-ui)
 
@@ -46,6 +48,8 @@
   :config
   (global-flycheck-mode))
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :config
+  (setq typescript-indent-level 2))
 
 (use-package rustic)

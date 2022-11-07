@@ -10,6 +10,7 @@
 (delete-selection-mode 1)
 
 ;; Setting settings variables
+(setq frame-resize-pixelwise t)
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message nil)
 (setq inhibit-startup-echo-area-message user-login-name)

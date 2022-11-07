@@ -34,3 +34,11 @@
 
   (require 'use-package)
   (setq use-package-always-ensure t))
+
+(defun ph/eslint-fix-file ()
+  (interactive)
+  (message "eslint --fix the file" (buffer-file-name))
+  (call-process-shell-command
+   (concat "eslint --fix " (buffer-file-name))
+   nil "*Shell Command Output*" t)
+  (revert-buffer t t))

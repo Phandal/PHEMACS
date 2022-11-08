@@ -1,5 +1,7 @@
 (ph/use-package-initialize)
 
+(use-package all-the-icons)
+
 (use-package helm
   :config
   (helm-mode 1)

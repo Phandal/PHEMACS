@@ -14,6 +14,7 @@
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message nil)
 (setq inhibit-startup-echo-area-message user-login-name)
+(setq native-comp-async-report-warnings-errors nil)
 (setq make-backup-files nil)
 (setq visible-bell t)
 (setq confirm-kill-emacs 'y-or-n-p)

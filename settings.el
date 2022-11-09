@@ -10,6 +10,7 @@
 (delete-selection-mode 1)
 
 ;; Setting settings variables
+(setq gc-cons-threshold (* 50 1000 1000))
 (setq frame-resize-pixelwise t)
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message nil)

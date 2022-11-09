@@ -15,11 +15,11 @@
   (setq which-key-idle-delay 0.3))
 
 (use-package doom-themes)
-(load-theme 'doom-tomorrow-day t nil)
+(load-theme 'doom-tokyo-night t nil)
 
 (use-package doom-modeline
-  :init
-  (doom-modeline-mode t)
+  ;; :init
+  ;; (doom-modeline-mode t)
   :config
   (setq-default doom-modeline-height 10))
 

@@ -5,8 +5,9 @@
 (use-package helm
   :config
   (helm-mode 1)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files))
+  (define-key global-map [remap find-file] #'helm-find-files)
+  (define-key global-map [remap execute-extended-command] #'helm-M-x)
+  (define-key global-map [remap switch-to-buffer] #'helm-mini))
 
 (use-package which-key
   :init
@@ -31,6 +32,8 @@
 (use-package magit)
 
 (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   :custom
   (setq lsp-eslint-auto-fix-on-save t))
 
@@ -41,7 +44,7 @@
   (global-company-mode 1)
   :config
   (setq company-minimum-prefix-length 1)
-  (setq company-idle-delay 0.1))
+  (setq company-idle-delay 0.0))
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -49,6 +52,8 @@
 (use-package flycheck
   :config
   (global-flycheck-mode))
+
+(use-package helm-lsp)
 
 (use-package typescript-mode
   :config

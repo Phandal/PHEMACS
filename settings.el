@@ -10,7 +10,8 @@
 (delete-selection-mode 1)
 
 ;; Setting settings variables
-(setq gc-cons-threshold (* 50 1000 1000))
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024))
 (setq frame-resize-pixelwise t)
 (setq inhibit-splash-screen t)
 (setq initial-scratch-message nil)

@@ -55,6 +55,10 @@
 
 (use-package helm-lsp)
 
+(use-package treemacs)
+
+(use-package lsp-treemacs)
+
 (use-package typescript-mode
   :config
   (setq typescript-indent-level 2))

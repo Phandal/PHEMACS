@@ -15,6 +15,13 @@
   :config
   (setq which-key-idle-delay 0.3))
 
+(use-package helpful
+  :bind
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-key] . helpfule-key))
+
 (use-package doom-themes)
 (load-theme 'doom-tokyo-night t nil)
 

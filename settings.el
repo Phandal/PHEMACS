@@ -18,6 +18,7 @@
 (setq inhibit-startup-echo-area-message user-login-name)
 (setq native-comp-async-report-warnings-errors nil)
 (setq make-backup-files nil)
+(setq create-lockfiles nil)
 (setq visible-bell t)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq ring-bell-function 'ph/flash-mode-line)

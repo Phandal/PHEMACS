@@ -20,7 +20,7 @@
   ([remap describe-function] . helpful-callable)
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . helpful-variable)
-  ([remap describe-key] . helpfule-key))
+  ([remap describe-key] . helpful-key))
 
 (use-package doom-themes)
 (load-theme 'doom-tokyo-night t nil)
@@ -33,8 +33,7 @@
 
 (use-package exec-path-from-shell
   :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
+  (exec-path-from-shell-initialize))
 
 (use-package magit)
 
@@ -47,8 +46,8 @@
 (use-package lsp-ui)
 
 (use-package company
-  :init
-  (global-company-mode 1)
+  :hook
+  (lsp-mode . company-mode)
   :config
   (setq company-minimum-prefix-length 1)
   (setq company-idle-delay 0.0))

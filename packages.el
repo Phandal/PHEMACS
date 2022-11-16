@@ -37,6 +37,8 @@
 
 (use-package magit)
 
+(use-package vterm)
+
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")

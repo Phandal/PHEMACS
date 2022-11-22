@@ -67,8 +67,13 @@
 
 (use-package lsp-treemacs)
 
+
+;; LSP Language modes
 (use-package typescript-mode
   :config
   (setq typescript-indent-level 2))
+
+;; Javascript mode
+(setq js-indent-level 2)
 
 (use-package rustic)

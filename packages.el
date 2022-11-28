@@ -2,6 +2,8 @@
 
 (use-package all-the-icons)
 
+(use-package pdf-tools)
+
 (use-package helm
   :config
   (helm-mode 1)
@@ -23,7 +25,7 @@
   ([remap describe-key] . helpful-key))
 
 (use-package doom-themes)
-(load-theme 'doom-tokyo-night t nil)
+(load-theme 'doom-tomorrow-night t nil)
 
 (use-package doom-modeline
   ;; :init

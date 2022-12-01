@@ -25,7 +25,10 @@
   ([remap describe-key] . helpful-key))
 
 (use-package doom-themes)
-(load-theme 'doom-tomorrow-night t nil)
+(use-package solaire-mode
+  :init
+  (solaire-global-mode 1))
+(load-theme 'doom-badger t nil)
 
 (use-package doom-modeline
   ;; :init
@@ -45,7 +48,10 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :custom
-  (setq lsp-eslint-auto-fix-on-save t))
+  (setq lsp-eslint-auto-fix-on-save t)
+  :hook (c-mode . lsp-mode)
+  :hook (typescript-mode . lsp-mode)
+  )
 
 (use-package lsp-ui)
 

@@ -28,7 +28,7 @@
 (use-package solaire-mode
   :init
   (solaire-global-mode 1))
-(load-theme 'doom-badger t nil)
+(load-theme 'doom-tomorrow-day t nil)
 
 (use-package doom-modeline
   ;; :init
@@ -51,9 +51,12 @@
   (setq lsp-eslint-auto-fix-on-save t)
   :hook (c-mode . lsp-mode)
   :hook (typescript-mode . lsp-mode)
+  :hook (js-mode . lsp-mode)
   )
 
-(use-package lsp-ui)
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-sideline-enable nil))
 
 (use-package company
   :hook

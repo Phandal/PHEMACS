@@ -39,3 +39,5 @@
 ;; Turn on line numbers for some modes
 (ph/line-numbers-per-mode)
 
+;; Turn on some disabled commands
+(put 'upcase-region 'disabled nil)

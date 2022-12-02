@@ -10,3 +10,4 @@ eln-cache/*
 flycheck_packages.el
 .cache/*
 recentf
+games/*

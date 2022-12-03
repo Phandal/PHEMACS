@@ -5,7 +5,7 @@
 
 ;; Turning things on
 (electric-pair-mode 1)
-(fringe-mode 0)
+;;(fringe-mode 0)
 (global-hl-line-mode 1)
 (delete-selection-mode 1)
 
@@ -41,3 +41,6 @@
 
 ;; Turn on some disabled commands
 (put 'upcase-region 'disabled nil)
+
+;; Set the font
+(set-frame-font "JetBrainsMono Nerd Font 12" nil t)

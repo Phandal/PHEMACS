@@ -24,6 +24,10 @@
 (setq ring-bell-function 'ph/flash-mode-line)
 (setq custom-file (concat user-emacs-directory "emacs-custom.el"))
 (setq-default indent-tabs-mode nil)
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-autoselect-window t)
+(setq scroll-conservatively 100)
 
 ;; Mac Specific Settings
 (setq mac-command-modifier 'meta)

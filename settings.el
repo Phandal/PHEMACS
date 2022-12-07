@@ -47,4 +47,4 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Set the font
-(set-frame-font "JetBrainsMono Nerd Font 12" nil t)
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))

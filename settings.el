@@ -28,6 +28,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-autoselect-window t)
 (setq scroll-conservatively 100)
+(setq org-agenda-files (list "~/Time/agenda.org"))
 
 ;; Mac Specific Settings
 (setq mac-command-modifier 'meta)

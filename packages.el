@@ -88,3 +88,6 @@
 (setq js-indent-level 2)
 
 (use-package rustic)
+
+(use-package lsp-pyright)
+(setq python-indent-offset 2)

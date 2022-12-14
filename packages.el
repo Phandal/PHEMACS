@@ -84,10 +84,13 @@
   :config
   (setq typescript-indent-level 2))
 
-;; Javascript mode
+;; javascript mode
 (setq js-indent-level 2)
 
 (use-package rustic)
 
 (use-package lsp-pyright)
 (setq python-indent-offset 2)
+
+;; sh-mode
+(setq sh-indentation 2)

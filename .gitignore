@@ -11,3 +11,4 @@ flycheck_packages.el
 .cache/*
 recentf
 games/*
+tramp

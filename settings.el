@@ -29,6 +29,7 @@
 (setq mouse-autoselect-window t)
 (setq scroll-conservatively 100)
 (setq org-agenda-files (list "~/Time/agenda.org"))
+(setq truncate-lines nil)
 
 ;; Mac Specific Settings
 (setq mac-command-modifier 'meta)

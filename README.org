@@ -1,0 +1,18 @@
+#+TITLE: PHEMACS
+
+A customized emacs configuration written by me for me!
+
+* Disclaimer
+I am quite new to emacs. If I am doing something wrong, don't flame me to hard!
+
+1. [[*Installation][Installation]]
+2. [[*Dependencies][Dependencies]]
+
+* Installation
+Clone this repo into one of the emacs configuration directories. Then rename the directory to the appropriate directory name for emacs e.g. ".emacs.d", ".emacs".
+```console
+git clone https://github.com/Phandal/PHEMACS
+mv ./PHEMACS ./your/directory/name
+
+* Dependencies
+These should be handled by emacs.

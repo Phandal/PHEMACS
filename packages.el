@@ -56,7 +56,9 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-sideline-enable nil))
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-doc-show-with-cursor t)
+  (setq lsp-ui-doc-show-with-mouse nil))
 
 (use-package company
   :hook

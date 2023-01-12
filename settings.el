@@ -29,6 +29,7 @@
 (setq mouse-autoselect-window t)
 (setq scroll-conservatively 100)
 (setq org-agenda-files (list "~/Time/agenda.org"))
+(setq display-line-numbers-type 'relative)
 (setq-default truncate-lines t)
 
 ;; Mac Specific Settings

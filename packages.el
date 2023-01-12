@@ -28,7 +28,7 @@
 (use-package solaire-mode
   :init
   (solaire-global-mode 1))
-(load-theme 'doom-sourcerer t nil)
+(load-theme 'modus-operandi t nil)
 
 (use-package doom-modeline
   ;; :init

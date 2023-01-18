@@ -51,4 +51,4 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Set the font
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12"))
+(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-10"))

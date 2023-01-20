@@ -52,4 +52,6 @@
 (put 'upcase-region 'disabled nil)
 
 ;; Set the font
-(add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-10"))
+(unless (eq system-type 'windows-nt)
+  (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-10")))
+

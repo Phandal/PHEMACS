@@ -32,6 +32,7 @@
 (setq display-line-numbers-type 'relative)
 (setq column-number-mode t)
 (setq-default truncate-lines t)
+(setq gdb-many-windows t)
 
 ;; Mac Specific Settings
 (setq mac-command-modifier 'meta)

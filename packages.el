@@ -4,6 +4,10 @@
 
 (use-package pdf-tools)
 
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode t))
+
 (use-package helm
   :config
   (helm-mode 1)

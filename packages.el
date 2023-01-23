@@ -28,13 +28,7 @@
 (use-package solaire-mode
   :init
   (solaire-global-mode 1))
-(load-theme 'modus-operandi t nil)
-
-(use-package doom-modeline
-  ;; :init
-  ;; (doom-modeline-mode t)
-  :config
-  (setq-default doom-modeline-height 10))
+(load-theme 'doom-old-hope t nil)
 
 (unless (eq system-type 'windows-nt)
   (use-package exec-path-from-shell
@@ -44,6 +38,12 @@
   (use-package vterm))
 
 (use-package magit)
+
+(use-package tree-sitter-langs)
+(use-package tree-sitter
+  :hook (tree-sitter-mode . tree-sitter-hl-mode)
+  :config
+  (global-tree-sitter-mode t))
 
 (use-package lsp-mode
   :init

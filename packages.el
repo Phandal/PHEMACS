@@ -15,6 +15,12 @@
   (define-key global-map [remap execute-extended-command] #'helm-M-x)
   (define-key global-map [remap switch-to-buffer] #'helm-mini))
 
+(use-package swiper)
+(use-package swiper-helm
+  :config
+  (define-key global-map [remap isearch-forward] #'swiper-helm)
+  (define-key global-map [remap isearch-backward] #'swiper-helm))
+
 (use-package which-key
   :init
   (which-key-mode 1)

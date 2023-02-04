@@ -12,3 +12,5 @@ flycheck_packages.el
 recentf
 games/*
 tramp
+workspace/*
+eclipse.jdt.ls/*

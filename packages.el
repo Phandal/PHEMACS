@@ -93,17 +93,23 @@
 
 
 ;; LSP Language modes
+;; TypeScript
 (use-package typescript-mode
   :config
   (setq typescript-indent-level 2))
 
-;; javascript mode
+;; JavaScript
 (setq js-indent-level 2)
 
+;; Rust
 (use-package rustic)
 
+;; Python
 (use-package lsp-pyright)
 (setq python-indent-offset 2)
 
-;; sh-mode
+;; SH
 (setq sh-indentation 2)
+
+;; Java
+(use-package lsp-java)

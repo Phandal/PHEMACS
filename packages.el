@@ -15,6 +15,12 @@
   (define-key global-map [remap execute-extended-command] #'helm-M-x)
   (define-key global-map [remap switch-to-buffer] #'helm-mini))
 
+(use-package swiper)
+(use-package swiper-helm
+  :config
+  (define-key global-map [remap isearch-forward] #'swiper-helm)
+  (define-key global-map [remap isearch-backward] #'swiper-helm))
+
 (use-package which-key
   :init
   (which-key-mode 1)
@@ -87,17 +93,23 @@
 
 
 ;; LSP Language modes
+;; TypeScript
 (use-package typescript-mode
   :config
   (setq typescript-indent-level 2))
 
-;; javascript mode
+;; JavaScript
 (setq js-indent-level 2)
 
+;; Rust
 (use-package rustic)
 
+;; Python
 (use-package lsp-pyright)
 (setq python-indent-offset 2)
 
-;; sh-mode
+;; SH
 (setq sh-indentation 2)
+
+;; Java
+(use-package lsp-java)

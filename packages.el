@@ -38,7 +38,8 @@
 (use-package solaire-mode
   :init
   (solaire-global-mode 1))
-(load-theme 'doom-old-hope t nil)
+;; (load-theme 'doom-old-hope t nil)
+(load-theme 'doom-nord t nil)
 
 (unless (eq system-type 'windows-nt)
   (use-package exec-path-from-shell
@@ -67,7 +68,7 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-sideline-enable nil)
+  ;; (setq lsp-ui-sideline-enable nil)
   (setq lsp-ui-doc-show-with-cursor t)
   (setq lsp-ui-doc-show-with-mouse nil))
 

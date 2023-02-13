@@ -14,3 +14,4 @@ games/*
 tramp
 workspace/*
 eclipse.jdt.ls/*
+.dap-breakpoints

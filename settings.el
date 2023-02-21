@@ -28,7 +28,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq mouse-autoselect-window t)
 (setq scroll-conservatively 100)
-(setq org-agenda-files (list "~/Time/agenda.org"))
+(setq org-agenda-files (directory-files-recursively "~/Time/" "\\.org$"))
 (setq display-line-numbers-type 'relative)
 (setq column-number-mode t)
 (setq-default truncate-lines t)

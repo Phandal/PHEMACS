@@ -54,4 +54,4 @@
 ;; Set the font
 (if (eq system-type 'windows-nt)
     (add-to-list 'default-frame-alist '(font . "JetBrainsMono NF-8"))
-  (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-8")))
+  (add-to-list 'default-frame-alist '(font . "JetBrainsMono Nerd Font-12")))

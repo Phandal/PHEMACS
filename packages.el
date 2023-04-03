@@ -2,7 +2,7 @@
 
 (use-package all-the-icons)
 
-(use-package pdf-tools)
+;; (use-package pdf-tools)
 
 (use-package hl-todo
   :config
@@ -92,6 +92,10 @@
 
 (use-package lsp-treemacs)
 
+(use-package org-roam
+  :config
+  (setq org-roam-directory (file-truename "~/org-roam"))
+  (org-roam-db-autosync-mode))
 
 ;; LSP Language modes
 ;; TypeScript

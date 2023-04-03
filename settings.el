@@ -50,6 +50,7 @@
 
 ;; Turn on some disabled commands
 (put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Set the font
 (if (eq system-type 'windows-nt)

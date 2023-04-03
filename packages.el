@@ -34,11 +34,11 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
 
-(use-package doom-themes)
 (use-package solaire-mode
-  :init
+  :config
   (solaire-global-mode 1))
-;; (load-theme 'doom-old-hope t nil)
+
+(use-package doom-themes)
 (load-theme 'doom-nord t nil)
 
 (unless (eq system-type 'windows-nt)
@@ -63,14 +63,13 @@
   (setq lsp-eslint-auto-fix-on-save t)
   :hook (c-mode . lsp-mode)
   :hook (typescript-mode . lsp-mode)
-  :hook (js-mode . lsp-mode)
-  )
+  :hook (js-mode . lsp-mode))
 
 (use-package lsp-ui
   :config
   ;; (setq lsp-ui-sideline-enable nil)
   (setq lsp-ui-doc-show-with-cursor t)
-  (setq lsp-ui-doc-show-with-mouse nil))
+  (setq lsp-ui-doc-show-with-mouse t))
 
 (use-package company
   :hook
@@ -101,7 +100,8 @@
 ;; TypeScript
 (use-package typescript-mode
   :config
-  (setq typescript-indent-level 2))
+  (setq typescript-indent-level 2)
+  (flycheck-add-next-checker 'lsp 'typescript-tslint))
 
 ;; JavaScript
 (setq js-indent-level 2)

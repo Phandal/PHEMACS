@@ -99,6 +99,7 @@
 ;; LSP Language modes
 ;; TypeScript
 (use-package typescript-mode
+  :after (lsp)
   :config
   (setq typescript-indent-level 2)
   (flycheck-add-next-checker 'lsp 'typescript-tslint))

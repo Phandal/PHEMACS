@@ -1,5 +1,4 @@
 ;; Turning things off
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -37,6 +36,8 @@
 ;; Mac Specific Settings
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
+(unless (eq system-type 'darwin)
+    (menu-bar-mode -1))
 
 ;; Setting aliases
 (defalias 'yes-or-no-p 'y-or-n-p)

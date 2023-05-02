@@ -15,3 +15,4 @@ tramp
 workspace/*
 eclipse.jdt.ls/*
 .dap-breakpoints
+eshell/*

@@ -91,18 +91,17 @@
 
 (use-package lsp-treemacs)
 
-(use-package org-roam
-  :config
-  (setq org-roam-directory (file-truename "~/org-roam"))
-  (org-roam-db-autosync-mode))
+;; (use-package org-roam
+;;   :config
+;;   (setq org-roam-directory (file-truename "~/org-roam"))
+;;   (org-roam-db-autosync-mode))
 
 ;; LSP Language modes
 ;; TypeScript
 (use-package typescript-mode
-  :after (lsp)
   :config
-  (setq typescript-indent-level 2)
-  (flycheck-add-next-checker 'lsp 'typescript-tslint))
+  (setq typescript-indent-level 2))
+  ;; (flycheck-add-next-checker 'lsp 'typescript-tslint))
 
 ;; JavaScript
 (setq js-indent-level 2)

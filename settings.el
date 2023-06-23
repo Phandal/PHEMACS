@@ -54,6 +54,6 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; Set the font
-(if (eq system-type 'windows-nt)
-    (add-to-list 'default-frame-alist '(font . "JetBrainsMono NF-8"))
+(if (eq system-type 'darwin)
+    (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font Mono-12"))
   (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font Mono-10")))
